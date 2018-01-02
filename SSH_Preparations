@@ -1,0 +1,16 @@
+Before the off-site copy will work properly, you will need to ensure that you are using SSH keys and are capable of logging in to the remote server using those keys. This file will explain how to do that:
+
+On the machine which hosts your database, log in as the user you intend to use for backup purposes, and then run the following commands (these assume you do not already have a pair of SSH keys generated. If you have, then skip the first step):
+
+1. ssh-keygen -t rsa
+
+2. ssh-copy-id -i /path/to/your/public_key remoteuser@remotehost
+
+The path to your public key is typically /home/username/.ssh/id_rsa.pub
+You will be prompted for the remote user's password in the first instance. This is normal.
+
+Verify you can now log in without using the password:
+
+3. ssh remoteuser@remotehost
+
+You should log in without being prompted for a password.
