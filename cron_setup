@@ -1,0 +1,9 @@
+To automate this process, it's best to set up a cron job. Using an appropriate system account on the host running your MySQL server, you can edit the crontab file by running the following command:
+
+1. crontab -e
+
+There will already be content in this file, so using your text editor, go to the very bottom of the file and enter an appropriate setting for how often you'd like to run the backup script. If you're not sure, there is a very useful website you can use: https://crontab.guru
+
+I back up my database at 1am every morning, as I know that's a time when it's barely in use, and thus the job will complete quickly. The entry in my crontab file, therefore, looks like this:
+
+0 1 * * * /path/to/database_backup.sh
